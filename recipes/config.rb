@@ -26,7 +26,7 @@ directory node['chronograf']['local_database_dir'] do
 end
 
 file node['chronograf']['conf_file'] do
-  content TOML.dump(node['chronograf']['config'])
+  content TOML::Generator.new(node['chronograf']['config']).body
   notifies :restart, 'service[chronograf]' if node['chronograf']['notify_restart'] && !node['chronograf']['disable_service']
 end
 
