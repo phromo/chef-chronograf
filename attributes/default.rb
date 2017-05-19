@@ -13,6 +13,8 @@ default['chronograf']['yum']['baseurl'] = value_for_platform(
   %w(centos redhat fedora) => { 'default' => 'https://repos.influxdata.com/rhel/6/$basearch/stable' }
 )
 
+default['chronograf']['include_repository'] = true
+
 default['chronograf']['yum']['description'] = 'InfluxDB Repository - RHEL $releasever'
 default['chronograf']['yum']['gpgcheck'] = true
 default['chronograf']['yum']['enabled'] = true

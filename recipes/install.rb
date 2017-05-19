@@ -26,6 +26,7 @@ when 'debian'
     key node['chronograf']['apt']['key']
     distribution node['chronograf']['apt']['distribution']
     action node['chronograf']['apt']['action']
+    only_if { node['chronograf']['include_repository'] }
   end
 when 'rhel'
   # yum repository configuration
@@ -36,6 +37,7 @@ when 'rhel'
     gpgkey node['chronograf']['yum']['gpgkey']
     enabled node['chronograf']['yum']['enabled']
     action node['chronograf']['yum']['action']
+    only_if { node['chronograf']['include_repository'] }
   end
 end
 
